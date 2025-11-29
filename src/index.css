@@ -3,6 +3,10 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: blue;
+  --color-primary: purple;
   --color-secondary: teal;
+}
+
+li a.active {
+  @apply text-primary
 }
