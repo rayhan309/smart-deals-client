@@ -25,13 +25,13 @@ const Navber = () => {
       {user && (
         <>
           <li className="font-semibold my-font">
-            <NavLink>My Products</NavLink>
+            <NavLink to={'/myProducts'}>My Products</NavLink>
           </li>
           <li className="font-semibold my-font">
-            <NavLink>My Bids</NavLink>
+            <NavLink to={'/myBids'}>My Bids</NavLink>
           </li>
           <li className="font-semibold my-font">
-            <NavLink>Create Products</NavLink>
+            <NavLink to={'/createProducts'}>Create Products</NavLink>
           </li>
         </>
       )}
