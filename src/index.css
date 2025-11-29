@@ -21,3 +21,15 @@ li a.active {
 body {
   font-family: "Inter", sans-serif;
 }
+
+body {
+  @apply bg-gray-100
+}
+
+.text-color {
+  @apply bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent
+}
+
+.btn-primar {
+  @apply btn bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white font-medium cursor-pointer
+}

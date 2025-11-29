@@ -8,6 +8,7 @@ import MyProducts from "../components/MyProducts/MyProducts";
 import MyBids from "../components/MyBids/MyBids";
 import CreateProducts from "../components/CreateProducts/CreateProducts";
 import PrivitePage from "../components/PrivitePage/PrivitePage";
+import ProductsDitails from "../components/ProductsDitails/ProductsDitails";
 
 export const router = createBrowserRouter([
   {
@@ -16,38 +17,54 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home
+        Component: Home,
       },
       {
-        path: '/allproduct',
-        Component: AllProduct
+        path: "/allproduct",
+        Component: AllProduct,
       },
       {
-        path: '/register',
-        Component: Register
+        path: "/register",
+        Component: Register,
       },
       {
-        path: '/login',
-        Component: Login
+        path: "/login",
+        Component: Login,
       },
       {
-        path: '/myProducts',
-        element: <PrivitePage>
-          <MyProducts />
-        </PrivitePage>
+        path: "/myProducts",
+        element: (
+          <PrivitePage>
+            <MyProducts />
+          </PrivitePage>
+        ),
       },
       {
-        path: '/myBids',
-        element: <PrivitePage>
-          <MyBids />
-        </PrivitePage>
+        path: "/myBids",
+        element: (
+          <PrivitePage>
+            <MyBids />
+          </PrivitePage>
+        ),
       },
       {
-        path: '/createProducts',
-        element: <PrivitePage>
-          <CreateProducts />
-        </PrivitePage>
-      }
+        path: "/createProducts",
+        element: (
+          <PrivitePage>
+            <CreateProducts />
+          </PrivitePage>
+        ),
+      },
+      {
+        path: "/product-ditails/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
+        element: (
+          <PrivitePage>
+            <ProductsDitails />
+          </PrivitePage>
+        ),
+      },
     ],
   },
 ]);
