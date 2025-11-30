@@ -7,12 +7,18 @@ const MyBids = () => {
     const [myBids, setMyBids] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bids?email=${user?.email}`)
+      if(user.email) {
+        fetch(`http://localhost:5000/bids?email=${user?.email}`, {
+          headers: {
+            authorization: `Bearer ${user?.accessToken}`
+          }
+        })
         .then(res => res.json())
         .then(data => {
             setMyBids(data)
-        })
-    }, [user?.email]);
+        });
+      }
+    }, [user?.email, user?.accessToken]);
     return (
        <div className="w-11/12 mx-auto p-4 md:p-6 mb-10">
         <h1 className="text-4xl font-bold">
