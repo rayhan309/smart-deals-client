@@ -21,6 +21,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/allproduct",
+        loader: () => fetch("http://localhost:5000/products"),
         Component: AllProduct,
       },
       {

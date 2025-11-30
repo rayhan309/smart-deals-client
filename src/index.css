@@ -7,7 +7,8 @@
   name: "light";
   default: true;
   --color-primary: #632EE3;
-  --color-secondary: teal;
+  --color-secondary: #FFC107;
+  --color-primary-content: #FF3D00;
 }
 
 li a.active {

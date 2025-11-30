@@ -12,9 +12,9 @@ const Banner = () => {
         all in one place!
       </p>
       <div className="flex justify-center mt-4">
-        <div className="join ">
+        <div className="join">
           <input
-            className="input join-item md:w-[400px] text-xs"
+            className="input join-item md:w-[400px] text-xs bg-linear-to-t to-[#FFE6FD] from-[#E0F8F5]"
             placeholder="search For Products, Categoriees..."
           />
           <div className="relative">

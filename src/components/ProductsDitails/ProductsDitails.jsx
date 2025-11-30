@@ -123,6 +123,7 @@ const ProductDitails = () => {
                   name="ammount"
                   className="input w-full"
                   placeholder="Your Price"
+                  required
                 />
 
                 <button className="btn btn-primar mt-4">Submit Bid!</button>
@@ -291,7 +292,7 @@ const ProductDitails = () => {
                           <div className="mask mask-squircle h-12 w-12">
                             <img
                               src={
-                                "https://img.daisyui.com/images/profile/demo/2@94.webp"
+                                bid?.buyer_image
                               }
                               alt={bid?.buyer_name}
                             />
