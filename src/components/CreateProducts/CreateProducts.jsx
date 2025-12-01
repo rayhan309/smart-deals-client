@@ -49,7 +49,7 @@ export default function CreateProducts() {
     };
 
     axiosSequre.post("/products", newProduct).then((data) => {
-      console.log(data.data.insertedId);
+      // console.log(data.data.insertedId);
       if (data.data.insertedId) {
         Swal.fire({
           title: "Product Created!",

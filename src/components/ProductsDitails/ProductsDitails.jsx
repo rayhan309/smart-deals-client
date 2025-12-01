@@ -30,7 +30,7 @@ const ProductDitails = () => {
   } = product || {};
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bids/byProducts/${_id}`)
+    fetch(`https://smart-deals-server-blond.vercel.app/bids/byProducts/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         setBids(data);
@@ -59,7 +59,7 @@ const ProductDitails = () => {
       status: "pending",
     };
 
-    fetch("http://localhost:5000/bids", {
+    fetch("https://smart-deals-server-blond.vercel.app/bids", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -282,7 +282,7 @@ const ProductDitails = () => {
               <tbody>
                 {/* row 1 */}
                 {bids.sort((a, b) => b.bid_price - a.bid_price).map((bid, index) => (
-                  <tr>
+                  <tr key={bid._id}>
                     <th>{index + 1}</th>
                     <td>
                       <div className="flex items-center gap-3">

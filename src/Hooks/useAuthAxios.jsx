@@ -2,14 +2,14 @@ import axios from "axios";
 import { AuthContext } from "../Context/AuthContext";
 import { use, useEffect } from "react";
 
-const instance = axios.create({ baseURL: "http://localhost:5000" });
+const instance = axios.create({ baseURL: "https://smart-deals-server-blond.vercel.app" });
 
 const useAxiosSequre = () => {
   const { user, signOurUser } = use(AuthContext);
 
   useEffect(() => {
     const instactor = instance.interceptors.request.use((config) => {
-    config.headers.Authorization = `Bearer  ${user?.accessToken}`;
+    config.headers.Authorization = `Bearer ${user?.accessToken}`;
     return config;
   });
 
