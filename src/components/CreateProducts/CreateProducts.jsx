@@ -4,12 +4,14 @@ import { IoArrowBack } from "react-icons/io5";
 import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthContext";
+import useAxiosSequre from "../../Hooks/useAuthAxios";
 
 export default function CreateProducts() {
   const [condition, setCondition] = useState("brand");
   const navigate = useNavigate();
   const { user } = use(AuthContext);
   const [category, setCategory] = useState("");
+  const axiosSequre = useAxiosSequre();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,40 +29,7 @@ export default function CreateProducts() {
     const sellerLocation = from.sellerLocation.value;
     const description = from.description.value;
     const nowTime = new Date().toISOString();
-
-    // _id
-    // 6747a002a2a2a2a2a2a2a2a2
-    // title
-    // "Samsung 55-inch Smart TV"
-    // price_min
-    // 500
-    // price_max
-    // 650
-    // email
-    // "seller2@example.com"
-    // category
-    // "Electronics"
-    // created_at
-    // "2025-01-11T09:20:00Z"
-    // image
-    // "https://via.placeholder.com/200?text=Samsung+TV"
-    // status
-    // "sold"
-    // location
-    // "Chattogram"
-    // seller_image
-    // "https://via.placeholder.com/100?text=Seller2"
-    // seller_name
-    // "Mahmudul Alam"
-    // condition
-    // "used"
-    // usage
-    // "1 year old"
-    // description
-    // "Smart TV with 4K Display. Works perfectly."
-    // seller_contact
-    // "01700000002"
-
+  
     const newProduct = {
       title: title,
       price_min: min_price,
@@ -79,24 +48,15 @@ export default function CreateProducts() {
       seller_contact: sellerContact,
     };
 
-    // console.log({
-    //   min_price,
-    //   max_price,
-    //   brand,
-    //   useTime,
-    //   productImage,
-    //   sellerName,
-    //   sellerEmail,
-    //   sellerContact,
-    //   sellerImage,
-    //   sellerLocation,
-    //   description,
-    // });
-
-    Swal.fire({
-      title: "Product Created!",
-      icon: "success",
-      confirmButtonColor: "#6A5AE0",
+    axiosSequre.post("/products", newProduct).then((data) => {
+      console.log(data.data.insertedId);
+      if (data.data.insertedId) {
+        Swal.fire({
+          title: "Product Created!",
+          icon: "success",
+          confirmButtonColor: "#6A5AE0",
+        });
+      }
     });
   };
 

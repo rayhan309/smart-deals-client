@@ -83,9 +83,7 @@ const ProductDitails = () => {
         }
       });
   };
-
-  console.log(bids);
-
+ 
   return (
     <>
       <div className="w-11/12 mx-auto p-4 md:p-6">
